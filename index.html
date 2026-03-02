@@ -482,13 +482,44 @@ html { scroll-behavior: smooth; }
 .card:nth-child(4) { animation-delay: 0.3s; }
 .card:nth-child(5) { animation-delay: 0.4s; }
 .card:nth-child(6) { animation-delay: 0.5s; }
+
+/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
+:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+.tab-btn:focus-visible, .nav-btn:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #005fcc;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 
 <!-- DISCLAIMER -->
 <div class="disclaimer-banner">
-  <div class="disclaimer-toggle" onclick="toggleDisclaimer()">
+  <div class="disclaimer-toggle" onclick="toggleDisclaimer()" role="button" tabindex="0" aria-expanded="false" aria-controls="disc-body" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleDisclaimer();}">
     <span>⚠️</span>
     <span>Important Disclaimer</span>
     <span class="arrow" id="disc-arrow">▼</span>
@@ -530,18 +561,18 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- NAV -->
-<div class="nav-bar">
-  <button class="nav-btn active" onclick="showSection('start', this)">Start Here</button>
-  <button class="nav-btn" onclick="showSection('skills', this)">Study Skills</button>
-  <button class="nav-btn" onclick="showSection('subjects', this)">Subject Help</button>
-  <button class="nav-btn" onclick="showSection('direction', this)">Finding Direction</button>
-  <button class="nav-btn" onclick="showSection('all', this)">All Resources</button>
+<div class="nav-bar" role="tablist" aria-label="Page sections">
+  <button role="tab" aria-selected="true" aria-controls="sec-start" class="nav-btn active" onclick="showSection('start', this)">Start Here</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-skills" class="nav-btn" onclick="showSection('skills', this)">Study Skills</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-subjects" class="nav-btn" onclick="showSection('subjects', this)">Subject Help</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-direction" class="nav-btn" onclick="showSection('direction', this)">Finding Direction</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-all" class="nav-btn" onclick="showSection('all', this)">All Resources</button>
 </div>
 
-<div class="container">
+<div class="container" id="main-content" role="main">
 
 <!-- ========== START HERE ========== -->
-<div class="guide-section active" id="sec-start">
+<div class="guide-section active" id="sec-start" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag start">Welcome</div>
@@ -590,7 +621,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== STUDY SKILLS ========== -->
-<div class="guide-section" id="sec-skills">
+<div class="guide-section" id="sec-skills" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag skills">Study Skills</div>
@@ -635,7 +666,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== SUBJECT HELP ========== -->
-<div class="guide-section" id="sec-subjects">
+<div class="guide-section" id="sec-subjects" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag subjects">Subject Help</div>
@@ -719,7 +750,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== FINDING DIRECTION ========== -->
-<div class="guide-section" id="sec-direction">
+<div class="guide-section" id="sec-direction" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag direction">Finding Direction</div>
@@ -751,7 +782,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== ALL RESOURCES ========== -->
-<div class="guide-section" id="sec-all">
+<div class="guide-section" id="sec-all" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag all">Complete List</div>
@@ -823,15 +854,19 @@ html { scroll-behavior: smooth; }
 function showSection(id, btn) {
   document.querySelectorAll('.guide-section').forEach(s => s.classList.remove('active'));
   document.getElementById('sec-' + id).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
   btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
   window.scrollTo({ top: document.querySelector('.nav-bar').offsetTop, behavior: 'smooth' });
 }
 function toggleDisclaimer() {
   const body = document.getElementById('disc-body');
   const arrow = document.getElementById('disc-arrow');
+  const toggle = document.querySelector('.disclaimer-toggle');
   body.classList.toggle('open');
   arrow.classList.toggle('open');
+  const isOpen = body.classList.contains('open');
+  toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 </script>
 </body>
