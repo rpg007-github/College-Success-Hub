@@ -482,16 +482,47 @@ html { scroll-behavior: smooth; }
 .card:nth-child(4) { animation-delay: 0.3s; }
 .card:nth-child(5) { animation-delay: 0.4s; }
 .card:nth-child(6) { animation-delay: 0.5s; }
+
+/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
+:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+.tab-btn:focus-visible, .nav-btn:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #005fcc;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 
 <!-- DISCLAIMER -->
 <div class="disclaimer-banner">
-  <div class="disclaimer-toggle" onclick="toggleDisclaimer()">
-    <span>⚠️</span>
+  <div class="disclaimer-toggle" onclick="toggleDisclaimer()" role="button" tabindex="0" aria-expanded="false" aria-controls="disc-body" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleDisclaimer();}">
+    <span><span aria-hidden="true">⚠️</span></span>
     <span>Important Disclaimer</span>
-    <span class="arrow" id="disc-arrow">▼</span>
+    <span class="arrow" id="disc-arrow"><span aria-hidden="true">▼</span></span>
   </div>
   <div class="disclaimer-body" id="disc-body">
     <div class="disclaimer-body-inner">
@@ -511,17 +542,17 @@ html { scroll-behavior: smooth; }
     <p class="hero-sub">Every successful student started somewhere. Whether you're adjusting to college, strengthening your foundation, or exploring new directions, these resources meet you exactly where you are.</p>
     <div class="hero-features">
       <div class="hero-feature">
-        <span class="hero-feature-icon">🌱</span>
+        <span class="hero-feature-icon"><span aria-hidden="true">🌱</span></span>
         <h3>Start Where You Are</h3>
         <p>No judgment, no pressure. Build from your current knowledge level.</p>
       </div>
       <div class="hero-feature">
-        <span class="hero-feature-icon">🎯</span>
+        <span class="hero-feature-icon"><span aria-hidden="true">🎯</span></span>
         <h3>Learn What You Need</h3>
         <p>Focused guides on the skills and subjects that matter most.</p>
       </div>
       <div class="hero-feature">
-        <span class="hero-feature-icon">💪</span>
+        <span class="hero-feature-icon"><span aria-hidden="true">💪</span></span>
         <h3>Build Real Confidence</h3>
         <p>Practice tools that help you truly understand, not just memorize.</p>
       </div>
@@ -530,18 +561,18 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- NAV -->
-<div class="nav-bar">
-  <button class="nav-btn active" onclick="showSection('start', this)">Start Here</button>
-  <button class="nav-btn" onclick="showSection('skills', this)">Study Skills</button>
-  <button class="nav-btn" onclick="showSection('subjects', this)">Subject Help</button>
-  <button class="nav-btn" onclick="showSection('direction', this)">Finding Direction</button>
-  <button class="nav-btn" onclick="showSection('all', this)">All Resources</button>
+<div class="nav-bar" role="tablist" aria-label="Page sections">
+  <button role="tab" aria-selected="true" aria-controls="sec-start" class="nav-btn active" onclick="showSection('start', this)">Start Here</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-skills" class="nav-btn" onclick="showSection('skills', this)">Study Skills</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-subjects" class="nav-btn" onclick="showSection('subjects', this)">Subject Help</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-direction" class="nav-btn" onclick="showSection('direction', this)">Finding Direction</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-all" class="nav-btn" onclick="showSection('all', this)">All Resources</button>
 </div>
 
-<div class="container">
+<div class="container" id="main-content" role="main">
 
 <!-- ========== START HERE ========== -->
-<div class="guide-section active" id="sec-start">
+<div class="guide-section active" id="sec-start" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag start">Welcome</div>
@@ -590,7 +621,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== STUDY SKILLS ========== -->
-<div class="guide-section" id="sec-skills">
+<div class="guide-section" id="sec-skills" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag skills">Study Skills</div>
@@ -600,7 +631,7 @@ html { scroll-behavior: smooth; }
 
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Note-Taking/" target="_blank" class="card skills">
-      <div class="card-icon skills">📝</div>
+      <div class="card-icon skills"><span aria-hidden="true">📝</span></div>
       <h3>Note-Taking & Study Strategies</h3>
       <p>Learn proven methods like Cornell Notes, active recall, spaced repetition, and the Pomodoro Technique. These aren't just theories—they're practical systems that work for real students in real classes. Includes practice tools to help you master each technique.</p>
       <div class="card-features">
@@ -609,11 +640,11 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">Time Management</span>
         <span class="feature-tag">Interactive Practice</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
 
     <a href="https://rpg007-github.github.io/Getting-better/" target="_blank" class="card skills">
-      <div class="card-icon skills">🌱</div>
+      <div class="card-icon skills"><span aria-hidden="true">🌱</span></div>
       <h3>Getting Better</h3>
       <p>A comprehensive guide for navigating college successfully. Covers managing academic anxiety, building social confidence, developing personal accountability, and making the transition from high school to college-level expectations. Written specifically for students who feel like they're figuring it out as they go.</p>
       <div class="card-features">
@@ -622,7 +653,7 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">Accountability</span>
         <span class="feature-tag">College Transition</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
   </div>
 
@@ -635,7 +666,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== SUBJECT HELP ========== -->
-<div class="guide-section" id="sec-subjects">
+<div class="guide-section" id="sec-subjects" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag subjects">Subject Help</div>
@@ -645,7 +676,7 @@ html { scroll-behavior: smooth; }
 
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Math-Fluency/" target="_blank" class="card subjects">
-      <div class="card-icon subjects">🔢</div>
+      <div class="card-icon subjects"><span aria-hidden="true">🔢</span></div>
       <h3>Math Fluency</h3>
       <p>Build computational confidence with timed arithmetic practice, mental math strategies, and foundational algebra skills. Designed to help you develop the number sense and calculation speed that make higher-level math courses much easier to navigate.</p>
       <div class="card-features">
@@ -654,11 +685,11 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">Algebra Basics</span>
         <span class="feature-tag">Timed Practice</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
 
     <a href="https://rpg007-github.github.io/Science-Vocabulary-Builder/" target="_blank" class="card subjects">
-      <div class="card-icon subjects">📚</div>
+      <div class="card-icon subjects"><span aria-hidden="true">📚</span></div>
       <h3>Science Vocabulary Builder</h3>
       <p>Decode scientific terms using Latin and Greek roots, prefixes, and suffixes. When you understand the building blocks of scientific language, you can figure out unfamiliar terms without memorizing every single word. Essential for any science course.</p>
       <div class="card-features">
@@ -667,11 +698,11 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">Medical Terms</span>
         <span class="feature-tag">Interactive Flashcards</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
 
     <a href="https://rpg007-github.github.io/College-Algebra/" target="_blank" class="card subjects">
-      <div class="card-icon subjects">📐</div>
+      <div class="card-icon subjects"><span aria-hidden="true">📐</span></div>
       <h3>College Algebra</h3>
       <p>Functions, equations, graphing, and polynomial operations explained with worked examples and step-by-step reasoning. If algebra feels like a foreign language, this guide breaks it down into manageable pieces.</p>
       <div class="card-features">
@@ -680,11 +711,11 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">Worked Examples</span>
         <span class="feature-tag">Practice Problems</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
 
     <a href="https://rpg007-github.github.io/Biology-for-non-majors/" target="_blank" class="card subjects">
-      <div class="card-icon subjects">🧬</div>
+      <div class="card-icon subjects"><span aria-hidden="true">🧬</span></div>
       <h3>Biology for Non-Majors</h3>
       <p>Conceptual biology that explains why these topics matter in everyday life. Less molecular detail, more real-world connections. Perfect for general education requirements or getting a solid foundation before taking more advanced courses.</p>
       <div class="card-features">
@@ -693,11 +724,11 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">No Prerequisites</span>
         <span class="feature-tag">Interactive Quizzes</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
 
     <a href="https://rpg007-github.github.io/Chemistry-for-non-majors/" target="_blank" class="card subjects">
-      <div class="card-icon subjects">⚗️</div>
+      <div class="card-icon subjects"><span aria-hidden="true">⚗️</span></div>
       <h3>Chemistry for Non-Majors</h3>
       <p>Chemistry concepts with less mathematical complexity and more emphasis on understanding how chemistry affects daily life. Covers the essential ideas you need without getting lost in calculations.</p>
       <div class="card-features">
@@ -706,7 +737,7 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">Clear Explanations</span>
         <span class="feature-tag">Practice Questions</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
   </div>
 
@@ -719,7 +750,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== FINDING DIRECTION ========== -->
-<div class="guide-section" id="sec-direction">
+<div class="guide-section" id="sec-direction" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag direction">Finding Direction</div>
@@ -729,7 +760,7 @@ html { scroll-behavior: smooth; }
 
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Finding-your-way-in-College/" target="_blank" class="card direction">
-      <div class="card-icon direction">🧭</div>
+      <div class="card-icon direction"><span aria-hidden="true">🧭</span></div>
       <h3>Finding Your Way in College</h3>
       <p>A comprehensive guide for students trying to figure out their major and career direction. Covers self-assessment frameworks, how majors connect to careers, practical exploration strategies (informational interviews, job shadowing), and guidance on changing your major if needed.</p>
       <div class="card-features">
@@ -738,7 +769,7 @@ html { scroll-behavior: smooth; }
         <span class="feature-tag">Career Connections</span>
         <span class="feature-tag">Decision Tools</span>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
   </div>
 
@@ -751,7 +782,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <!-- ========== ALL RESOURCES ========== -->
-<div class="guide-section" id="sec-all">
+<div class="guide-section" id="sec-all" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag all">Complete List</div>
@@ -764,12 +795,12 @@ html { scroll-behavior: smooth; }
     <a href="https://rpg007-github.github.io/Note-Taking/" target="_blank" class="card skills">
       <h3>Note-Taking & Study Strategies</h3>
       <p>Cornell Notes, active recall, spaced repetition, time management.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
     <a href="https://rpg007-github.github.io/Getting-better/" target="_blank" class="card skills">
       <h3>Getting Better</h3>
       <p>College transition, anxiety management, building confidence.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
   </div>
 
@@ -778,27 +809,27 @@ html { scroll-behavior: smooth; }
     <a href="https://rpg007-github.github.io/Math-Fluency/" target="_blank" class="card subjects">
       <h3>Math Fluency</h3>
       <p>Arithmetic practice, mental math, foundational algebra skills.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
     <a href="https://rpg007-github.github.io/Science-Vocabulary-Builder/" target="_blank" class="card subjects">
       <h3>Science Vocabulary Builder</h3>
       <p>Latin and Greek roots, scientific terminology, word building.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
     <a href="https://rpg007-github.github.io/College-Algebra/" target="_blank" class="card subjects">
       <h3>College Algebra</h3>
       <p>Functions, graphing, equations with worked examples.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
     <a href="https://rpg007-github.github.io/Biology-for-non-majors/" target="_blank" class="card subjects">
       <h3>Biology for Non-Majors</h3>
       <p>Conceptual biology with real-world applications.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
     <a href="https://rpg007-github.github.io/Chemistry-for-non-majors/" target="_blank" class="card subjects">
       <h3>Chemistry for Non-Majors</h3>
       <p>Essential chemistry concepts, less math-intensive.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
   </div>
 
@@ -807,7 +838,7 @@ html { scroll-behavior: smooth; }
     <a href="https://rpg007-github.github.io/Finding-your-way-in-College/" target="_blank" class="card direction">
       <h3>Finding Your Way in College</h3>
       <p>Major exploration, career direction, self-assessment tools.</p>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><span aria-hidden="true">→</span></span>
     </a>
   </div>
 </div>
@@ -823,15 +854,19 @@ html { scroll-behavior: smooth; }
 function showSection(id, btn) {
   document.querySelectorAll('.guide-section').forEach(s => s.classList.remove('active'));
   document.getElementById('sec-' + id).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
   btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
   window.scrollTo({ top: document.querySelector('.nav-bar').offsetTop, behavior: 'smooth' });
 }
 function toggleDisclaimer() {
   const body = document.getElementById('disc-body');
   const arrow = document.getElementById('disc-arrow');
+  const toggle = document.querySelector('.disclaimer-toggle');
   body.classList.toggle('open');
   arrow.classList.toggle('open');
+  const isOpen = body.classList.contains('open');
+  toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 </script>
 </body>
