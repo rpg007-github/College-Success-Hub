@@ -3,1136 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>College Success Hub | Building Confidence in Learning</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>College Success Hub | Free Study Resources</title>
+<meta name="description" content="Free supplemental study guides for college students. Study skills, math and science foundations, life skills, and career direction. No login required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream: #fdfbf7;
-  --paper: #f8f5f0;
-  --soft-brown: #8b7355;
-  --warm-brown: #6b5b47;
-  --deep-brown: #4a3f35;
-  --accent-teal: #2d6a6b;
-  --accent-green: #4a7c59;
-  --accent-coral: #b04841;  /* deepened from #d4756b — now 5.0:1 on white, 4.6:1 on glow */
-  --accent-gold: #8c5f1e;   /* deepened from #c49a5a — now 5.6:1 on white, 5.2:1 on glow */
-  --soft-blue: #5b7c8a;
-  --text-dark: #3d3424;
+  --paper: #f5f0e8;
+  --text: #3d3424;
   --text-soft: #6b5b47;
-  --text-light: #786450;    /* deepened from #8b7966 — now 5.4:1 on cream (footer, arrows) */
-  --border-soft: rgba(139,115,85,0.15);
-  --shadow-soft: 0 2px 12px rgba(75,63,53,0.08);
-  --shadow-hover: 0 8px 24px rgba(75,63,53,0.12);
-  --radius: 16px;
-  --radius-sm: 8px;
-  --glow-teal: rgba(45,106,107,0.12);
-  --glow-green: rgba(74,124,89,0.12);
-  --glow-coral: rgba(176,72,65,0.1);
-  --glow-gold: rgba(140,95,30,0.1);
-  --glow-blue: rgba(91,124,138,0.12);
+  --text-dim: #8b7966;
+  --teal: #2d6a6b;
+  --teal-light: rgba(45,106,107,.1);
+  --teal-border: rgba(45,106,107,.22);
+  --green: #4a7c59;
+  --green-light: rgba(74,124,89,.1);
+  --coral: #b04841;
+  --coral-light: rgba(176,72,65,.09);
+  --gold: #8c5f1e;
+  --gold-light: rgba(140,95,30,.09);
+  --gold-border: rgba(140,95,30,.22);
+  --border: rgba(139,115,85,.15);
+  --shadow: 0 2px 10px rgba(75,63,53,.07);
+  --shadow-hover: 0 6px 20px rgba(75,63,53,.13);
+  --r: 12px;
 }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Atkinson Hyperlegible',sans-serif; background:var(--cream); color:var(--text); line-height:1.75; font-size:16px; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+.skip-link { position:absolute; top:-100px; left:1rem; background:#005fcc; color:#fff; padding:.5rem 1rem; border-radius:0 0 6px 6px; font-weight:700; text-decoration:none; z-index:999; transition:top .2s; }
+.skip-link:focus { top:0; }
+:focus-visible { outline:3px solid #005fcc !important; outline-offset:3px !important; }
+@media(prefers-reduced-motion:reduce){ *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
 
-body {
-  font-family: 'Atkinson Hyperlegible', sans-serif;
-  background: var(--cream);
-  color: var(--text-dark);
-  line-height: 1.75;
-  font-size: 17px;
-  min-height: 100vh;
-}
+.disc { background:#fdf6e8; border-bottom:2px solid var(--gold-border); padding:.65rem 1.5rem; text-align:center; font-size:.8rem; color:var(--text-soft); line-height:1.55; }
+.disc strong { color:var(--gold); }
+.disc a { color:var(--gold); text-decoration:underline; text-underline-offset:2px; }
 
-/* ── SKIP LINK ── */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  background: #005fcc;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0 0 6px 6px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  z-index: 9999;
-  transition: top 0.2s;
-}
-.skip-link:focus { top: 0; }
+.hero { padding:4rem 2rem 3rem; text-align:center; background:linear-gradient(160deg,var(--cream) 0%,var(--paper) 60%,var(--cream) 100%); border-bottom:1px solid var(--border); }
+.hero-label { font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--teal); background:var(--teal-light); border:1px solid var(--teal-border); padding:.28rem .9rem; border-radius:20px; display:inline-block; margin-bottom:1.25rem; }
+.hero h1 { font-family:'Fraunces',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:700; letter-spacing:-.03em; line-height:1.12; margin-bottom:.9rem; }
+.hero h1 span { color:var(--teal); }
+.hero p { font-size:1.05rem; color:var(--text-soft); max-width:600px; margin:0 auto; line-height:1.8; }
 
-/* ── FOCUS INDICATORS ── */
-:focus-visible {
-  outline: 3px solid #005fcc !important;
-  outline-offset: 2px !important;
-}
+.page { max-width:980px; margin:0 auto; padding:2.5rem 1.75rem 5rem; }
 
-/* ── REDUCED MOTION ── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+.section { margin-bottom:3.5rem; }
+.section-label { font-family:'JetBrains Mono',monospace; font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; display:inline-block; padding:.25rem .7rem; border-radius:5px; margin-bottom:.6rem; }
+.lbl-skills    { color:var(--green); background:var(--green-light); }
+.lbl-subjects  { color:var(--coral); background:var(--coral-light); }
+.lbl-life      { color:var(--gold);  background:var(--gold-light);  }
+.lbl-direction { color:var(--gold);  background:var(--gold-light);  }
+.section > h2 { font-family:'Fraunces',serif; font-size:1.45rem; font-weight:600; margin-bottom:.4rem; }
+.section > p  { font-size:.93rem; color:var(--text-soft); line-height:1.7; max-width:680px; margin-bottom:1.25rem; }
 
-/* ── DISCLAIMER BANNER ── */
-.disclaimer-banner {
-  background: linear-gradient(135deg, #f0eae0, #f5f0e8);
-  border-bottom: 1px solid var(--border-soft);
-  padding: 0;
-  overflow: hidden;
-}
-.disclaimer-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.6rem 2rem;
-  cursor: pointer;
-  font-size: 0.8rem;
-  color: var(--warm-brown);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.05em;
-  transition: background 0.2s;
-  user-select: none;
-  border: none;
-  background: transparent;
-  width: 100%;
-}
-.disclaimer-toggle:hover { background: rgba(139,115,85,0.04); }
-.disclaimer-toggle .arrow { transition: transform 0.3s; font-size: 0.7rem; }
-.disclaimer-toggle .arrow.open { transform: rotate(180deg); }
-.disclaimer-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 2rem;
-}
-.disclaimer-body.open { max-height: 600px; padding: 0 2rem 1.5rem; }
-.disclaimer-body-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: var(--text-soft);
-}
-.disclaimer-body-inner p { margin-bottom: 0.6rem; }
-.disclaimer-body-inner p:last-child { margin-bottom: 0; }
+.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem; }
 
-/* ── HERO ── */
-.hero {
-  position: relative;
-  padding: 6rem 2rem 5rem;
-  text-align: center;
-  overflow: hidden;
-  background: linear-gradient(145deg, #fdfbf7 0%, #f8f5f0 40%, #f5f2ed 70%, #fdfbf7 100%);
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -300px; left: 50%; transform: translateX(-50%);
-  width: 1000px; height: 1000px;
-  background: radial-gradient(circle, var(--glow-teal) 0%, transparent 60%);
-  pointer-events: none;
-  opacity: 0.7;
-}
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.hero-badge {
-  display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  background: var(--glow-teal);
-  border: 1px solid rgba(45,106,107,0.25);
-  color: var(--accent-teal);
-  padding: 0.4rem 1.2rem;
-  border-radius: 25px;
-  margin-bottom: 2rem;
-}
-.hero h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.5rem, 6vw, 4.2rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  font-variation-settings: "opsz" 72;
-}
-.hero h1 .highlight { color: var(--accent-teal); }
-.hero-sub {
-  font-size: 1.25rem;
-  color: var(--text-soft);
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  font-weight: 400;
-  line-height: 1.8;
-}
-.hero-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-.hero-feature {
-  text-align: center;
-  padding: 1.5rem;
-  background: rgba(255,255,255,0.4);
-  border-radius: var(--radius);
-  border: 1px solid rgba(139,115,85,0.1);
-}
-.hero-feature-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-.hero-feature h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-}
-.hero-feature p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.65; }
+.card { display:block; background:#fff; border:1px solid var(--border); border-radius:var(--r); padding:1.3rem 1.4rem 1.5rem; text-decoration:none; color:inherit; box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; position:relative; }
+.card:hover { transform:translateY(-3px); box-shadow:var(--shadow-hover); border-color:rgba(45,106,107,.3); }
+.card-icon { font-size:1.5rem; margin-bottom:.6rem; display:block; }
+.card h3 { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:600; margin-bottom:.35rem; line-height:1.3; color:var(--text); padding-right:1.5rem; }
+.card p { font-size:.85rem; color:var(--text-soft); line-height:1.65; margin-bottom:.75rem; }
+.card-footer { font-size:.72rem; font-family:'JetBrains Mono',monospace; color:var(--text-dim); display:flex; flex-wrap:wrap; gap:.3rem; }
+.tag { background:var(--paper); padding:.15rem .5rem; border-radius:4px; }
+.card-arrow { position:absolute; top:1.3rem; right:1.3rem; color:var(--text-dim); font-size:.9rem; transition:transform .2s, color .2s; }
+.card:hover .card-arrow { color:var(--teal); transform:translateX(3px); }
 
-/* ── NAV ── */
-.nav-bar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(253,251,247,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-soft);
-  padding: 0.8rem 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-.nav-btn {
-  font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  padding: 0.5rem 1.4rem;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--text-soft);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-.nav-btn:hover {
-  color: var(--text-dark);
-  background: rgba(255,255,255,0.6);
-  transform: translateY(-1px);
-}
-.nav-btn.active {
-  color: var(--accent-teal);
-  background: var(--glow-teal);
-  border-color: rgba(45,106,107,0.25);
-  box-shadow: var(--shadow-soft);
-}
+.card.skills   { border-top:3px solid var(--green); }
+.card.subjects { border-top:3px solid var(--coral); }
+.card.life     { border-top:3px solid var(--gold); }
+.card.direction{ border-top:3px solid var(--gold); }
+.card.hub      { border-top:3px solid var(--teal); }
 
-/* ── CONTAINER ── */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 2rem 5rem;
-}
+.hubs-note { background:var(--teal-light); border:1px solid var(--teal-border); border-radius:var(--r); padding:1.25rem 1.5rem; margin-bottom:3rem; font-size:.9rem; color:var(--text-soft); }
+.hubs-note strong { color:var(--teal); display:block; margin-bottom:.5rem; font-size:.95rem; }
+.hub-links { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.5rem; }
+.hub-link { display:inline-flex; align-items:center; gap:.35rem; padding:.4rem 1rem; border-radius:8px; text-decoration:none; font-size:.86rem; font-weight:700; border:1px solid; transition:background .2s, transform .15s; }
+.hub-link:hover { transform:translateY(-1px); }
+.hub-link.teal  { color:var(--teal);  border-color:var(--teal-border); background:#fff; }
+.hub-link.teal:hover  { background:var(--teal-light); }
+.hub-link.coral { color:var(--coral); border-color:rgba(176,72,65,.22); background:#fff; }
+.hub-link.coral:hover { background:var(--coral-light); }
+.hub-link.green { color:var(--green); border-color:rgba(74,124,89,.22);  background:#fff; }
+.hub-link.green:hover { background:var(--green-light); }
 
-/* ── SECTION HEADERS ── */
-.section-header {
-  margin: 4rem 0 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--border-soft);
-  text-align: center;
-}
-.section-header:first-child { margin-top: 0; }
-.section-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  border-radius: 6px;
-}
-.section-tag.start  { background: var(--glow-teal);  color: var(--accent-teal);  }
-.section-tag.skills { background: var(--glow-green); color: var(--accent-green); }
-.section-tag.subjects { background: var(--glow-coral); color: var(--accent-coral); }
-.section-tag.direction { background: var(--glow-gold); color: var(--accent-gold); }
-.section-tag.all    { background: var(--glow-blue);  color: var(--soft-blue);    }
+.disclaimer-full { background:var(--paper); border:1px solid var(--gold-border); border-left:4px solid var(--gold); border-radius:0 var(--r) var(--r) 0; padding:1.4rem 1.75rem; margin:3rem 0 1rem; font-size:.83rem; color:var(--text-soft); line-height:1.75; }
+.disclaimer-full h3 { font-family:'Fraunces',serif; font-size:1rem; font-weight:600; color:var(--gold); margin-bottom:.7rem; }
+.disclaimer-full p { margin-bottom:.55rem; }
+.disclaimer-full p:last-child { margin-bottom:0; }
 
-.section-header h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.8rem;
-  font-variation-settings: "opsz" 48;
-}
-.section-header p {
-  color: var(--text-soft);
-  font-size: 1.05rem;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
+footer { text-align:center; padding:2rem 1.5rem; color:var(--text-dim); font-size:.78rem; border-top:1px solid var(--border); line-height:1.8; }
 
-.guide-section { display: none; }
-.guide-section.active { display: block; }
-
-/* ── CARDS ── */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-.card {
-  background: rgba(255,255,255,0.6);
-  border: 2px solid rgba(139,115,85,0.1);
-  border-radius: var(--radius);
-  padding: 2rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  box-shadow: var(--shadow-soft);
-}
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-teal), var(--accent-green));
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-.card:hover {
-  border-color: rgba(45,106,107,0.25);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-.card:hover::before { transform: scaleX(1); }
-.card.skills::before   { background: linear-gradient(90deg, var(--accent-green),  var(--accent-teal));  }
-.card.subjects::before { background: linear-gradient(90deg, var(--accent-coral),  var(--accent-gold));  }
-.card.direction::before{ background: linear-gradient(90deg, var(--accent-gold),   var(--accent-green)); }
-
-.card-icon {
-  width: 50px; height: 50px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
-  background: var(--glow-teal);
-}
-.card-icon.skills   { background: var(--glow-green); }
-.card-icon.subjects { background: var(--glow-coral); }
-.card-icon.direction{ background: var(--glow-gold);  }
-
-.card h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  line-height: 1.3;
-  font-variation-settings: "opsz" 32;
-}
-.card p {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-}
-.card-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-.feature-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  padding: 0.25rem 0.7rem;
-  border-radius: 6px;
-  letter-spacing: 0.05em;
-  background: rgba(139,115,85,0.08);
-  color: var(--warm-brown);
-  font-weight: 500;
-}
-.card-arrow {
-  position: absolute;
-  bottom: 2rem; right: 2rem;
-  font-size: 1.2rem;
-  color: var(--text-light);
-  transition: all 0.25s;
-}
-.card:hover .card-arrow           { color: var(--accent-teal);  transform: translateX(4px); }
-.card.skills:hover .card-arrow    { color: var(--accent-green); }
-.card.subjects:hover .card-arrow  { color: var(--accent-coral); }
-.card.direction:hover .card-arrow { color: var(--accent-gold);  }
-
-/* ── HOW-TO STEPS ── */
-.how-to {
-  background: rgba(255,255,255,0.5);
-  border: 2px solid rgba(139,115,85,0.1);
-  border-radius: var(--radius);
-  padding: 2.5rem;
-  margin: 2rem 0;
-  box-shadow: var(--shadow-soft);
-}
-.how-to h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: var(--text-dark);
-}
-.how-step {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.8rem;
-  align-items: flex-start;
-}
-.how-step:last-child { margin-bottom: 0; }
-.how-num {
-  flex-shrink: 0;
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--glow-teal);
-  border: 2px solid rgba(45,106,107,0.25);
-  color: var(--accent-teal);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem; font-weight: 500;
-  display: flex; align-items: center; justify-content: center;
-}
-.how-text h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-dark); }
-.how-text p  { font-size: 0.95rem; color: var(--text-soft); line-height: 1.7; }
-
-/* ── QUICK-START GRID ── */
-.quickstart-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  margin: 2rem 0;
-}
-.qs-card {
-  background: rgba(255,255,255,0.55);
-  border: 2px solid var(--border-soft);
-  border-radius: var(--radius-sm);
-  padding: 1.4rem 1.6rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.qs-card:hover { border-color: rgba(45,106,107,0.3); box-shadow: var(--shadow-soft); }
-.qs-card-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-.qs-card-label.teal   { color: var(--accent-teal);  }
-.qs-card-label.green  { color: var(--accent-green); }
-.qs-card-label.coral  { color: var(--accent-coral); }
-.qs-card-label.gold   { color: var(--accent-gold);  }
-.qs-card h4 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-}
-.qs-card p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 0.8rem; }
-.qs-link {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--accent-teal);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  border: none;
-  background: none;
-  padding: 0;
-  font-family: 'Atkinson Hyperlegible', sans-serif;
-  transition: gap 0.2s;
-}
-.qs-link:hover { gap: 0.55rem; }
-
-/* ── RESOURCE SPOTLIGHT ── */
-.spotlight {
-  background: rgba(255,255,255,0.55);
-  border: 2px solid var(--border-soft);
-  border-radius: var(--radius);
-  padding: 2rem 2.5rem;
-  margin: 1.5rem 0;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.5rem;
-  align-items: start;
-  box-shadow: var(--shadow-soft);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.spotlight:hover { border-color: rgba(45,106,107,0.25); box-shadow: var(--shadow-hover); }
-.spotlight-icon {
-  font-size: 2.4rem;
-  width: 60px; height: 60px;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  background: var(--glow-teal);
-}
-.spotlight-icon.green { background: var(--glow-green); }
-.spotlight-icon.coral { background: var(--glow-coral); }
-.spotlight-icon.gold  { background: var(--glow-gold);  }
-.spotlight-body h4 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-}
-.spotlight-body p { font-size: 0.95rem; color: var(--text-soft); line-height: 1.7; margin-bottom: 0.9rem; }
-.spotlight-body .spotlight-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
-.spotlight-body .what-youll-learn {
-  font-size: 0.88rem;
-  color: var(--text-soft);
-  background: var(--paper);
-  border-radius: var(--radius-sm);
-  padding: 0.8rem 1rem;
-  margin-bottom: 0.9rem;
-  border-left: 3px solid var(--accent-teal);
-}
-.spotlight-body .what-youll-learn.green  { border-left-color: var(--accent-green); }
-.spotlight-body .what-youll-learn.coral  { border-left-color: var(--accent-coral); }
-.spotlight-body .what-youll-learn.gold   { border-left-color: var(--accent-gold);  }
-.spotlight-body .what-youll-learn strong { display: block; margin-bottom: 0.35rem; color: var(--text-dark); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; font-family: 'JetBrains Mono', monospace; }
-.spotlight-body .what-youll-learn ul { padding-left: 1.1rem; }
-.spotlight-body .what-youll-learn li { margin-bottom: 0.2rem; }
-.visit-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 700;
-  padding: 0.55rem 1.3rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s;
-  border: 2px solid transparent;
-}
-.visit-btn.teal  { background: var(--glow-teal);  color: var(--accent-teal);  border-color: rgba(45,106,107,0.25); }
-.visit-btn.green { background: var(--glow-green); color: var(--accent-green); border-color: rgba(74,124,89,0.25);  }
-.visit-btn.coral { background: var(--glow-coral); color: var(--accent-coral); border-color: rgba(212,117,107,0.25);}
-.visit-btn.gold  { background: var(--glow-gold);  color: var(--accent-gold);  border-color: rgba(196,154,90,0.25); }
-.visit-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); filter: brightness(0.95); }
-
-/* ── ENCOURAGE BOX ── */
-.encourage-box {
-  background: linear-gradient(135deg, var(--glow-green), var(--glow-teal));
-  border: 2px solid rgba(74,124,89,0.2);
-  border-radius: var(--radius);
-  padding: 2rem 2.5rem;
-  margin: 3rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.encourage-box::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(45,106,107,0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-.encourage-box-content { position: relative; z-index: 1; }
-.encourage-box h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--accent-teal);
-}
-.encourage-box p {
-  font-size: 1rem;
-  color: var(--text-soft);
-  line-height: 1.8;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* ── ALL-RESOURCES SECTION HEADS ── */
-.all-section-head {
-  font-family: 'Fraunces', serif;
-  font-size: 1.4rem;
-  margin: 2.5rem 0 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-soft);
-}
-
-/* ── FOOTER ── */
-.footer {
-  text-align: center;
-  padding: 3rem 2rem;
-  color: var(--text-light);
-  font-size: 0.85rem;
-  border-top: 2px solid var(--border-soft);
-  margin-top: 4rem;
-  background: var(--paper);
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.card { animation: fadeUp 0.6s ease both; }
-.card:nth-child(2) { animation-delay: 0.1s; }
-.card:nth-child(3) { animation-delay: 0.2s; }
-.card:nth-child(4) { animation-delay: 0.3s; }
-.card:nth-child(5) { animation-delay: 0.4s; }
-.card:nth-child(6) { animation-delay: 0.5s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .hero { padding: 4rem 1.5rem 3.5rem; }
-  .hero-features { grid-template-columns: 1fr; gap: 1.5rem; }
-  .container { padding: 2rem 1.5rem 4rem; }
-  .card-grid { grid-template-columns: 1fr; }
-  .quickstart-grid { grid-template-columns: 1fr; }
-  .how-to { padding: 2rem; }
-  .nav-bar { padding: 0.6rem 1rem; gap: 0.5rem; }
-  .nav-btn { font-size: 0.8rem; padding: 0.4rem 1rem; }
-  .how-step { flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
-  .section-header h2 { font-size: 1.8rem; }
-  .encourage-box { padding: 1.5rem 2rem; }
-  .spotlight { grid-template-columns: 1fr; }
-  .spotlight-icon { display: none; }
+@media(max-width:640px){
+  .hero { padding:3rem 1.25rem 2.5rem; }
+  .page { padding:2rem 1.1rem 4rem; }
+  .cards { grid-template-columns:1fr; }
+  .hub-links { flex-direction:column; }
 }
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- DISCLAIMER -->
-<div class="disclaimer-banner" role="region" aria-label="Important disclaimer">
-  <button class="disclaimer-toggle" onclick="toggleDisclaimer()" aria-expanded="false" aria-controls="disc-body">
-    <span aria-hidden="true">⚠️</span>
-    <span>Important Disclaimer</span>
-    <span class="arrow" id="disc-arrow" aria-hidden="true">▼</span>
-  </button>
-  <div class="disclaimer-body" id="disc-body">
-    <div class="disclaimer-body-inner">
-      <p>These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
-      <p>While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
-      <p>No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
-      <p>These materials are not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher. All content represents the independent work and ideas of the author.</p>
-    </div>
-  </div>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="disc" role="note" aria-label="Important notice">
+  <strong>⚠ Supplemental study aids only.</strong> Not a substitute for your textbooks, course materials, or instructor guidance.
+  <a href="#disclaimer">Read full disclaimer ↓</a>
 </div>
 
-<!-- HERO -->
-<header class="hero" role="banner">
-  <div class="hero-content">
-    <div class="hero-badge">Free Learning Resources</div>
-    <h1>Build Your <span class="highlight">Confidence</span> in Learning</h1>
-    <p class="hero-sub">Every successful student started somewhere. Whether you're adjusting to college, strengthening your foundation, or exploring new directions, these resources meet you exactly where you are.</p>
-    <div class="hero-features">
-      <div class="hero-feature">
-        <span class="hero-feature-icon" aria-hidden="true">🌱</span>
-        <h3>Start Where You Are</h3>
-        <p>No judgment, no pressure. Build from your current knowledge level.</p>
-      </div>
-      <div class="hero-feature">
-        <span class="hero-feature-icon" aria-hidden="true">🎯</span>
-        <h3>Learn What You Need</h3>
-        <p>Focused guides on the skills and subjects that matter most.</p>
-      </div>
-      <div class="hero-feature">
-        <span class="hero-feature-icon" aria-hidden="true">💪</span>
-        <h3>Build Real Confidence</h3>
-        <p>Practice tools that help you truly understand, not just memorize.</p>
-      </div>
-    </div>
+<header>
+  <div class="hero">
+    <div class="hero-label" aria-hidden="true">Foundations: Closing the Gap</div>
+    <h1>College <span>Success</span> Hub</h1>
+    <p>Free study guides to help you build confidence, strengthen your foundation, and find your direction. No login. No judgment. Start anywhere.</p>
   </div>
 </header>
 
-<!-- NAV -->
-<nav class="nav-bar" role="tablist" aria-label="Page sections" id="nav-bar">
-  <button role="tab" aria-selected="true"  aria-controls="sec-start"     class="nav-btn active" onclick="showSection('start',     this)">Start Here</button>
-  <button role="tab" aria-selected="false" aria-controls="sec-skills"    class="nav-btn"        onclick="showSection('skills',    this)">Study Skills</button>
-  <button role="tab" aria-selected="false" aria-controls="sec-subjects"  class="nav-btn"        onclick="showSection('subjects',  this)">Subject Help</button>
-  <button role="tab" aria-selected="false" aria-controls="sec-direction" class="nav-btn"        onclick="showSection('direction', this)">Finding Direction</button>
-  <button role="tab" aria-selected="false" aria-controls="sec-all"       class="nav-btn"        onclick="showSection('all',       this)">All Resources</button>
-</nav>
+<main class="page" id="main">
 
-<main class="container" id="main-content">
-
-<!-- ═══════════ START HERE ═══════════ -->
-<section class="guide-section active" id="sec-start" role="tabpanel" aria-labelledby="start-heading">
-
-  <div class="section-header">
-    <div class="section-tag start">Welcome</div>
-    <h2 id="start-heading">You're in the Right Place</h2>
-    <p>Whether you're feeling behind, exploring options, or just want to get better at learning, this is a judgment-free zone focused on practical help that actually works.</p>
-  </div>
-
-  <div class="how-to" aria-label="How to use these resources">
-    <h3>How to Use These Resources</h3>
-    <div class="how-step">
-      <div class="how-num" aria-hidden="true">1</div>
-      <div class="how-text">
-        <h4>Choose what fits where you are right now</h4>
-        <p>If you're struggling with basic calculations, start with Math Fluency. If you feel overwhelmed by coursework, try the Study Skills guides. If you're not sure what you want to study, explore the Finding Direction resources. There's no wrong place to begin.</p>
-      </div>
-    </div>
-    <div class="how-step">
-      <div class="how-num" aria-hidden="true">2</div>
-      <div class="how-text">
-        <h4>Work through content at your own pace</h4>
-        <p>Every guide has clear explanations followed by practice opportunities. Take your time. Review sections that feel challenging. The interactive tools are designed to help you learn, not test what you don't know yet.</p>
-      </div>
-    </div>
-    <div class="how-step">
-      <div class="how-num" aria-hidden="true">3</div>
-      <div class="how-text">
-        <h4>Focus on progress, not perfection</h4>
-        <p>Building confidence is about consistent small improvements. Even working through one section or trying a few practice problems is meaningful progress. Come back when you're ready for more. Every return visit counts.</p>
-      </div>
-    </div>
-    <div class="how-step">
-      <div class="how-num" aria-hidden="true">4</div>
-      <div class="how-text">
-        <h4>Everyone learns differently and at different speeds</h4>
-        <p>What matters is finding approaches that work for you. These resources offer multiple ways to engage with material — explanations, examples, flashcards, and practice quizzes. Use what helps, skip what doesn't, and trust that you're building the foundation for success.</p>
-      </div>
+  <!-- OTHER HUBS -->
+  <div class="hubs-note" role="note" aria-label="Other hubs in this series">
+    <strong>Looking for biology, chemistry, or MCAT prep?</strong>
+    This hub covers student skills, foundational math and science, life skills, and career direction. For full science and MCAT content, visit:
+    <div class="hub-links">
+      <a href="https://rpg007-github.github.io/rpg007-github/Biology-Major-HUB/" target="_blank" rel="noopener" class="hub-link teal" aria-label="Biology Major Hub — opens in new tab">🧬 Biology Major Hub</a>
+      <a href="https://rpg007-github.github.io/rpg007-github/MCAT-HUB/" target="_blank" rel="noopener" class="hub-link coral" aria-label="MCAT Prep Hub — opens in new tab">🎯 MCAT Prep Hub</a>
+      <a href="https://rpg007-github.github.io/rpg007-github/Student-HUB/" target="_blank" rel="noopener" class="hub-link green" aria-label="Student Hub — opens in new tab">⭐ Student Hub</a>
     </div>
   </div>
 
-  <!-- Quick-start by situation -->
-  <h3 style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;margin:2.5rem 0 0.5rem;color:var(--text-dark);">Where do you want to start?</h3>
-  <p style="color:var(--text-soft);font-size:0.95rem;margin-bottom:1.25rem;">Pick the description that fits best right now.</p>
-  <div class="quickstart-grid">
+  <!-- STUDY SKILLS -->
+  <section class="section" aria-labelledby="h-skills">
+    <span class="section-label lbl-skills">Study Skills</span>
+    <h2 id="h-skills">How to Study — Skills That Actually Work</h2>
+    <p>Most students were never explicitly taught how to study at the college level. These guides cover evidence-based techniques that improve grades — not just the feeling of having studied.</p>
+    <div class="cards">
 
-    <div class="qs-card">
-      <span class="qs-card-label teal">Feeling behind in class</span>
-      <h4>Subject Help</h4>
-      <p>Need to catch up or strengthen your foundation in math, algebra, biology, or chemistry? These guides meet you where you are.</p>
-      <button class="qs-link" onclick="showSection('subjects', document.querySelectorAll('.nav-btn')[2])">Go to Subject Help <span aria-hidden="true">→</span></button>
+      <a href="https://rpg007-github.github.io/rpg007-github/Note-Taking/" target="_blank" rel="noopener" class="card skills" aria-label="Note-Taking and Study Strategies — opens in new tab">
+        <span class="card-icon" aria-hidden="true">📝</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Note-Taking &amp; Study Strategies</h3>
+        <p>Cornell Notes, active recall, spaced repetition, the Pomodoro technique, and how to study for different exam types. If re-reading your notes is not improving your grades, this guide explains why and what to do instead.</p>
+        <div class="card-footer"><span class="tag">Quiz</span><span class="tag">Flashcards</span><span class="tag">Practice Tools</span></div>
+      </a>
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Getting-better/" target="_blank" rel="noopener" class="card skills" aria-label="Getting Better — managing anxiety and the college transition — opens in new tab">
+        <span class="card-icon" aria-hidden="true">🌱</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Getting Better — Managing the College Transition</h3>
+        <p>For students who feel like they are figuring it out as they go. Covers managing academic anxiety, building social confidence, personal accountability, and the real differences between high school and college.</p>
+        <div class="card-footer"><span class="tag">Quiz</span><span class="tag">Flashcards</span><span class="tag">Reflective Writing</span></div>
+      </a>
+
     </div>
+  </section>
 
-    <div class="qs-card">
-      <span class="qs-card-label green">Struggling to study effectively</span>
-      <h4>Study Skills</h4>
-      <p>If you're putting in hours but not seeing results, you may need better strategies. Learn note-taking, active recall, and time management.</p>
-      <button class="qs-link" onclick="showSection('skills', document.querySelectorAll('.nav-btn')[1])">Go to Study Skills <span aria-hidden="true">→</span></button>
+  <!-- SUBJECT FOUNDATIONS -->
+  <section class="section" aria-labelledby="h-subjects">
+    <span class="section-label lbl-subjects">Subject Foundation</span>
+    <h2 id="h-subjects">Catch Up in Math &amp; Science</h2>
+    <p>Feeling behind? These guides build core skills from the ground up — plain-language explanations, worked examples, and practice built in. No prior knowledge assumed.</p>
+    <div class="cards">
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Math-Fluency/" target="_blank" rel="noopener" class="card subjects" aria-label="Math Fluency — arithmetic and foundational number skills — opens in new tab">
+        <span class="card-icon" aria-hidden="true">🔢</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Math Fluency — Arithmetic &amp; Number Skills</h3>
+        <p>Timed arithmetic drills, mental math shortcuts, fractions, decimals, and percentages. Start here if basic math feels slow or shaky — slow number sense makes every math course harder than it needs to be.</p>
+        <div class="card-footer"><span class="tag">Drills</span><span class="tag">Timed Practice</span></div>
+      </a>
+
+      <a href="https://rpg007-github.github.io/rpg007-github/College-Algebra/" target="_blank" rel="noopener" class="card subjects" aria-label="College Algebra — opens in new tab">
+        <span class="card-icon" aria-hidden="true">📐</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>College Algebra</h3>
+        <p>Functions, graphing, factoring, exponentials, and logarithms. Step-by-step worked examples show exactly where mistakes happen. Includes a practice quiz and flashcards for every major topic.</p>
+        <div class="card-footer"><span class="tag">Quiz</span><span class="tag">Flashcards</span><span class="tag">Worked Examples</span></div>
+      </a>
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Stats-Biostats/" target="_blank" rel="noopener" class="card subjects" aria-label="Statistics and Biostatistics — three reading levels — opens in new tab">
+        <span class="card-icon" aria-hidden="true">📊</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Statistics &amp; Biostatistics</h3>
+        <p>From "what is a mean" through hypothesis testing, t-tests, ANOVA, and diagnostic testing. Three reading levels — start at 8th-grade basics and build to college-level depth at your own pace.</p>
+        <div class="card-footer"><span class="tag">3 Reading Levels</span><span class="tag">Quiz</span><span class="tag">Flashcards</span></div>
+      </a>
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Science-Vocabular-Builder/" target="_blank" rel="noopener" class="card subjects" aria-label="Science Vocabulary Builder — Latin and Greek roots — opens in new tab">
+        <span class="card-icon" aria-hidden="true">📚</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Science Vocabulary Builder</h3>
+        <p>Learn to decode scientific terms using Latin and Greek roots, prefixes, and suffixes. Once you know the patterns, you can figure out words you have never seen before — in any science course.</p>
+        <div class="card-footer"><span class="tag">Flashcards</span><span class="tag">Interactive</span></div>
+      </a>
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Biology-for-non-majors/" target="_blank" rel="noopener" class="card subjects" aria-label="Biology for Non-Majors — no prerequisites — opens in new tab">
+        <span class="card-icon" aria-hidden="true">🧬</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Biology for Non-Majors</h3>
+        <p>Core biology concepts for students outside the biology major — cells, genetics, evolution, and ecology connected to real-world health and everyday life. No prior knowledge needed.</p>
+        <div class="card-footer"><span class="tag">Quiz</span><span class="tag">Flashcards</span><span class="tag">No Prerequisites</span></div>
+      </a>
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Chemistry-for-non-majors/" target="_blank" rel="noopener" class="card subjects" aria-label="Chemistry for Non-Majors — opens in new tab">
+        <span class="card-icon" aria-hidden="true">⚗️</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Chemistry for Non-Majors</h3>
+        <p>Essential chemistry for students who need it for their degree but are not chemistry majors. Emphasizes understanding over calculation — less math, more real-world meaning.</p>
+        <div class="card-footer"><span class="tag">Quiz</span><span class="tag">Flashcards</span></div>
+      </a>
+
     </div>
+  </section>
 
-    <div class="qs-card">
-      <span class="qs-card-label coral">Feeling overwhelmed by college life</span>
-      <h4>Getting Better</h4>
-      <p>Adjusting to college is genuinely hard. There's a guide specifically about managing anxiety, building confidence, and making the transition.</p>
-      <button class="qs-link" onclick="window.open('https://rpg007-github.github.io/Getting-better/','_blank')">Open the Guide <span aria-hidden="true">→</span></button>
+  <!-- LIFE SKILLS -->
+  <section class="section" aria-labelledby="h-life">
+    <span class="section-label lbl-life">Life Skills</span>
+    <h2 id="h-life">Practical Skills College Does Not Teach You</h2>
+    <p>Managing money, cooking, scheduling, and staying healthy on your own for the first time. These guides cover the practical skills that keep everything else from falling apart.</p>
+    <div class="cards">
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Home-Economics/" target="_blank" rel="noopener" class="card life" aria-label="Home Economics and Practical Life Skills — opens in new tab">
+        <span class="card-icon" aria-hidden="true">🏠</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Home Economics &amp; Practical Life Skills</h3>
+        <p>Budgeting on a student income, cooking simple affordable meals, building a schedule when no one is telling you what to do, sleep and nutrition basics, and how to find and use campus resources.</p>
+        <div class="card-footer"><span class="tag">Budgeting</span><span class="tag">Nutrition</span><span class="tag">Wellness</span><span class="tag">Quiz</span></div>
+      </a>
+
     </div>
+  </section>
 
-    <div class="qs-card">
-      <span class="qs-card-label gold">Not sure what to study</span>
-      <h4>Finding Direction</h4>
-      <p>Unsure about your major or career path? That's very common. Explore self-assessment tools and strategies for finding your direction.</p>
-      <button class="qs-link" onclick="showSection('direction', document.querySelectorAll('.nav-btn')[3])">Go to Finding Direction <span aria-hidden="true">→</span></button>
+  <!-- DIRECTION & CAREER -->
+  <section class="section" aria-labelledby="h-direction">
+    <span class="section-label lbl-direction">Direction &amp; Career</span>
+    <h2 id="h-direction">Figuring Out Your Major and Career Path</h2>
+    <p>Not sure what you want to study or where you are headed? These guides help you explore your interests, assess your options, and make decisions grounded in self-knowledge — not outside pressure.</p>
+    <div class="cards">
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Finding-your-way-in-College/" target="_blank" rel="noopener" class="card direction" aria-label="Finding Your Way in College — major and career exploration — opens in new tab">
+        <span class="card-icon" aria-hidden="true">🧭</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Finding Your Way in College — Major &amp; Career Exploration</h3>
+        <p>Self-assessment tools for values, skills, and interests. How college majors actually connect to careers. How to change your major without losing ground. How to talk to advisors so you get useful guidance.</p>
+        <div class="card-footer"><span class="tag">Self-Assessment</span><span class="tag">Decision Tools</span><span class="tag">Quiz</span></div>
+      </a>
+
+      <a href="https://rpg007-github.github.io/rpg007-github/Finding-YOUR-Path/" target="_blank" rel="noopener" class="card direction" aria-label="Finding YOUR Path — pre-med, grad school, and professional career planning — opens in new tab">
+        <span class="card-icon" aria-hidden="true">🗺</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+        <h3>Finding YOUR Path — Pre-Med, Grad School &amp; Career Planning</h3>
+        <p>For students ready to plan seriously for after graduation. Pre-med and professional school timelines, building a competitive application from year one, clinical hours, research, and personal statement guidance.</p>
+        <div class="card-footer"><span class="tag">Pre-Med</span><span class="tag">Grad School</span><span class="tag">Timeline</span><span class="tag">Flashcards</span></div>
+      </a>
+
     </div>
+  </section>
 
+  <!-- FULL DISCLAIMER -->
+  <div class="disclaimer-full" id="disclaimer" role="note" aria-labelledby="disc-h">
+    <h3 id="disc-h">⚠ Important Disclaimer</h3>
+    <p>These resources are provided <strong>free of charge as supplemental study aids only.</strong> They are not a substitute for your course textbooks, official lecture materials, or the guidance of your instructors. Always verify important facts and recommendations against your official course materials.</p>
+    <p>While every effort has been made to ensure accuracy, this content may contain errors or information that is out of date. No guarantees are made regarding completeness or reliability. Use at your own discretion. If you find an error, corrections are welcome.</p>
+    <p>These materials are <strong>not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher.</strong> All content represents the independent work of the author, provided without warranty of any kind.</p>
   </div>
-
-  <div class="encourage-box">
-    <div class="encourage-box-content">
-      <h3>Your Journey is Valid</h3>
-      <p>College can feel overwhelming, especially if you feel like you're starting from a different place than other students. That's completely normal. These resources exist because you deserve support, encouragement, and practical tools to succeed. Take it one step at a time.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ STUDY SKILLS ═══════════ -->
-<section class="guide-section" id="sec-skills" role="tabpanel" aria-labelledby="skills-heading">
-
-  <div class="section-header">
-    <div class="section-tag skills">Study Skills</div>
-    <h2 id="skills-heading">Learn How to Learn</h2>
-    <p>The most successful students aren't necessarily the smartest — they're the ones who know how to study effectively, manage their time, and build good learning habits. These are learnable skills.</p>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon green" aria-hidden="true">📝</div>
-    <div class="spotlight-body">
-      <h4>Note-Taking &amp; Study Strategies</h4>
-      <p>Most students were never explicitly taught how to study at the college level. This guide covers the evidence-based techniques that actually transfer to exam performance — not just feeling like you've studied.</p>
-      <div class="what-youll-learn">
-        <strong>What you'll learn</strong>
-        <ul>
-          <li>Cornell Notes — a structured method that forces active processing</li>
-          <li>Active Recall — retrieving information beats re-reading every time</li>
-          <li>Spaced Repetition — how to study less and remember more</li>
-          <li>The Pomodoro Technique — focused work intervals with intentional breaks</li>
-          <li>How to study for different types of exams (multiple choice vs. essays)</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Cornell Notes</span>
-        <span class="feature-tag">Active Recall</span>
-        <span class="feature-tag">Spaced Repetition</span>
-        <span class="feature-tag">Time Management</span>
-        <span class="feature-tag">Interactive Practice</span>
-      </div>
-      <a href="https://rpg007-github.github.io/Note-Taking/" rel="noopener noreferrer" target="_blank" class="visit-btn green" aria-label="Open Note-Taking and Study Strategies guide in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon" aria-hidden="true">🌱</div>
-    <div class="spotlight-body">
-      <h4>Getting Better</h4>
-      <p>A comprehensive guide written for students who feel like they're figuring it out as they go — which, honestly, is most people. Covers the emotional and social sides of college that nobody talks about in orientation.</p>
-      <div class="what-youll-learn">
-        <strong>What you'll learn</strong>
-        <ul>
-          <li>How to recognize and manage academic anxiety before it derails you</li>
-          <li>Building social confidence when everyone else seems comfortable</li>
-          <li>Developing personal accountability without burning yourself out</li>
-          <li>The real differences between high school and college expectations</li>
-          <li>How to ask for help — from professors, advisors, and peers</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Anxiety Management</span>
-        <span class="feature-tag">Social Skills</span>
-        <span class="feature-tag">Accountability</span>
-        <span class="feature-tag">College Transition</span>
-      </div>
-      <a href="https://rpg007-github.github.io/Getting-better/" rel="noopener noreferrer" target="_blank" class="visit-btn teal" aria-label="Open Getting Better guide in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="encourage-box">
-    <div class="encourage-box-content">
-      <h3>Study Skills Are Learnable Skills</h3>
-      <p>If you've never been taught how to take effective notes or study for college exams, that's not your fault. These are skills that can be learned and improved with practice. Most successful students had to consciously learn them too.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ SUBJECT HELP ═══════════ -->
-<section class="guide-section" id="sec-subjects" role="tabpanel" aria-labelledby="subjects-heading">
-
-  <div class="section-header">
-    <div class="section-tag subjects">Subject Help</div>
-    <h2 id="subjects-heading">Build Your Foundation</h2>
-    <p>Feeling behind in math or science? These resources help you strengthen core skills and build the vocabulary and conceptual understanding you need to succeed in college-level courses.</p>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon coral" aria-hidden="true">🔢</div>
-    <div class="spotlight-body">
-      <h4>Math Fluency</h4>
-      <p>Slow arithmetic and shaky number sense make every math course harder than it needs to be. This resource builds the computational confidence and mental math speed that makes college algebra and statistics much more manageable.</p>
-      <div class="what-youll-learn coral">
-        <strong>What you'll practice</strong>
-        <ul>
-          <li>Timed arithmetic drills to build automatic recall</li>
-          <li>Mental math shortcuts that save time on tests</li>
-          <li>Fraction, decimal, and percent fluency</li>
-          <li>Foundational algebra concepts before the full course</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Arithmetic Drills</span>
-        <span class="feature-tag">Mental Math</span>
-        <span class="feature-tag">Algebra Basics</span>
-        <span class="feature-tag">Timed Practice</span>
-      </div>
-      <a href="https://rpg007-github.github.io/Math-Fluency/" rel="noopener noreferrer" target="_blank" class="visit-btn coral" aria-label="Open Math Fluency guide in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon coral" aria-hidden="true">📚</div>
-    <div class="spotlight-body">
-      <h4>Science Vocabulary Builder</h4>
-      <p>Science courses throw hundreds of unfamiliar terms at you. This guide teaches you to decode them by understanding the Latin and Greek roots, prefixes, and suffixes that form the backbone of scientific language — so you can figure out words you've never seen before.</p>
-      <div class="what-youll-learn coral">
-        <strong>What you'll learn</strong>
-        <ul>
-          <li>The most common Latin and Greek word roots in biology and chemistry</li>
-          <li>Prefix and suffix patterns that reveal a word's meaning</li>
-          <li>Medical and anatomical terminology decoded</li>
-          <li>Interactive flashcard practice for retention</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Word Roots</span>
-        <span class="feature-tag">Prefixes &amp; Suffixes</span>
-        <span class="feature-tag">Medical Terms</span>
-        <span class="feature-tag">Interactive Flashcards</span>
-      </div>
-      <a href="https://rpg007-github.github.io/Science-Vocabulary-Builder/" rel="noopener noreferrer" target="_blank" class="visit-btn coral" aria-label="Open Science Vocabulary Builder in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon coral" aria-hidden="true">📐</div>
-    <div class="spotlight-body">
-      <h4>College Algebra</h4>
-      <p>If algebra feels like a foreign language, this guide breaks it down into manageable pieces using plain English, step-by-step worked examples, and practice problems that explain exactly where mistakes happen.</p>
-      <div class="what-youll-learn coral">
-        <strong>What you'll learn</strong>
-        <ul>
-          <li>Exponent rules and factoring techniques with step-by-step walkthroughs</li>
-          <li>Solving linear, quadratic, and absolute value equations</li>
-          <li>Functions, domain, and graph transformations</li>
-          <li>Exponentials and logarithms, including real-world applications</li>
-          <li>Practice quiz and flashcards for every major topic</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Functions</span>
-        <span class="feature-tag">Graphing</span>
-        <span class="feature-tag">Worked Examples</span>
-        <span class="feature-tag">Practice Quiz</span>
-        <span class="feature-tag">Flashcards</span>
-      </div>
-      <a href="https://rpg007-github.github.io/College-Algebra/" rel="noopener noreferrer" target="_blank" class="visit-btn coral" aria-label="Open College Algebra guide in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon coral" aria-hidden="true">🧬</div>
-    <div class="spotlight-body">
-      <h4>Biology for Non-Majors</h4>
-      <p>Conceptual biology with less molecular minutiae and more real-world meaning. This guide helps you understand why biological concepts matter in your daily life — perfect for general education requirements or building a foundation before more advanced work.</p>
-      <div class="what-youll-learn coral">
-        <strong>What you'll learn</strong>
-        <ul>
-          <li>Core biological concepts explained without assuming prior knowledge</li>
-          <li>Real-world connections to health, environment, and everyday life</li>
-          <li>How cells, genetics, and evolution actually connect</li>
-          <li>Interactive quizzes to test your understanding</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Conceptual Focus</span>
-        <span class="feature-tag">Real-World Applications</span>
-        <span class="feature-tag">No Prerequisites</span>
-        <span class="feature-tag">Interactive Quizzes</span>
-      </div>
-      <a href="https://rpg007-github.github.io/Biology-for-non-majors/" rel="noopener noreferrer" target="_blank" class="visit-btn coral" aria-label="Open Biology for Non-Majors in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon coral" aria-hidden="true">⚗️</div>
-    <div class="spotlight-body">
-      <h4>Chemistry for Non-Majors</h4>
-      <p>Chemistry with the emphasis on understanding rather than calculation. This guide covers the essential ideas in a way that makes sense without getting lost in formulas — ideal if you need chemistry for your degree but it's not your primary focus.</p>
-      <div class="what-youll-learn coral">
-        <strong>What you'll learn</strong>
-        <ul>
-          <li>Atomic structure and the periodic table, made intuitive</li>
-          <li>Chemical bonding and reactions in everyday contexts</li>
-          <li>How chemistry affects food, medicine, and the environment</li>
-          <li>Practice questions after every major topic</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Less Math</span>
-        <span class="feature-tag">Daily Applications</span>
-        <span class="feature-tag">Clear Explanations</span>
-        <span class="feature-tag">Practice Questions</span>
-      </div>
-      <a href="https://rpg007-github.github.io/Chemistry-for-non-majors/" rel="noopener noreferrer" target="_blank" class="visit-btn coral" aria-label="Open Chemistry for Non-Majors in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="encourage-box">
-    <div class="encourage-box-content">
-      <h3>Starting Points, Not End Points</h3>
-      <p>These resources are designed to help you build confidence and competence. They're starting points that can lead to more advanced learning when you're ready. There's no shame in needing to build your foundation first — that's exactly what foundations are for.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ FINDING DIRECTION ═══════════ -->
-<section class="guide-section" id="sec-direction" role="tabpanel" aria-labelledby="direction-heading">
-
-  <div class="section-header">
-    <div class="section-tag direction">Finding Direction</div>
-    <h2 id="direction-heading">Explore Your Options</h2>
-    <p>Not sure what you want to study or where you're headed? That's more common than it looks from the outside. These guides help you figure out your interests, explore possibilities, and make thoughtful decisions about your academic and career path.</p>
-  </div>
-
-  <div class="spotlight">
-    <div class="spotlight-icon gold" aria-hidden="true">🧭</div>
-    <div class="spotlight-body">
-      <h4>Finding Your Way in College</h4>
-      <p>A comprehensive guide for students trying to figure out their major and career direction. This isn't about picking the "right" answer — it's about getting better information so your decisions are grounded in self-knowledge instead of guesswork or outside pressure.</p>
-      <div class="what-youll-learn gold">
-        <strong>What you'll explore</strong>
-        <ul>
-          <li>Self-assessment frameworks — values, skills, interests, and personality</li>
-          <li>How college majors actually connect (and don't connect) to specific careers</li>
-          <li>Practical exploration strategies: informational interviews and job shadowing</li>
-          <li>How to change your major without losing significant ground</li>
-          <li>Decision-making tools for when you're weighing real options</li>
-          <li>How to talk to advisors so you actually get useful guidance</li>
-        </ul>
-      </div>
-      <div class="spotlight-tags">
-        <span class="feature-tag">Self-Assessment</span>
-        <span class="feature-tag">Major Exploration</span>
-        <span class="feature-tag">Career Connections</span>
-        <span class="feature-tag">Decision Tools</span>
-      </div>
-      <a href="https://rpg007-github.github.io/Finding-your-way-in-College/" rel="noopener noreferrer" target="_blank" class="visit-btn gold" aria-label="Open Finding Your Way in College guide in a new tab">Open Resource <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="how-to" aria-label="Questions to consider when exploring direction">
-    <h3>Questions Worth Sitting With</h3>
-    <div class="how-step">
-      <div class="how-num" aria-hidden="true" style="background:var(--glow-gold);border-color:rgba(196,154,90,0.3);color:var(--accent-gold);">1</div>
-      <div class="how-text">
-        <h4>What problems do you find genuinely interesting?</h4>
-        <p>Not "what are you good at" — that comes later. Start with what kinds of questions you find yourself thinking about without being asked to. Health and the body? How systems and economies work? Language and storytelling? Environmental problems? Technology and how it changes behavior?</p>
-      </div>
-    </div>
-    <div class="how-step">
-      <div class="how-num" aria-hidden="true" style="background:var(--glow-gold);border-color:rgba(196,154,90,0.3);color:var(--accent-gold);">2</div>
-      <div class="how-text">
-        <h4>What kind of work environment fits you?</h4>
-        <p>Do you want to work with people directly, or mostly with data, ideas, or objects? Indoors or out? In an office, a lab, a hospital, a school, a studio? These aren't trivial preferences — they're real constraints that should shape your direction.</p>
-      </div>
-    </div>
-    <div class="how-step">
-      <div class="how-num" aria-hidden="true" style="background:var(--glow-gold);border-color:rgba(196,154,90,0.3);color:var(--accent-gold);">3</div>
-      <div class="how-text">
-        <h4>What have you tried that felt right, even a little?</h4>
-        <p>Part-time jobs, volunteer work, classes you actually enjoyed, extracurriculars — these are real data about what might fit. The goal is to collect more data, not to already know the answer.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="encourage-box">
-    <div class="encourage-box-content">
-      <h3>It's Okay Not to Know</h3>
-      <p>Many students feel pressure to have their entire life mapped out by sophomore year. The truth is, most successful people changed direction multiple times. Exploration and uncertainty are normal — and healthy — parts of finding your path. The students who seem certain often aren't.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ALL RESOURCES ═══════════ -->
-<section class="guide-section" id="sec-all" role="tabpanel" aria-labelledby="all-heading">
-
-  <div class="section-header">
-    <div class="section-tag all">Complete List</div>
-    <h2 id="all-heading">All Resources</h2>
-    <p>Every available guide in one place, organized by category. Open any resource in a new tab and come back here whenever you need something different.</p>
-  </div>
-
-  <h3 class="all-section-head" style="color:var(--accent-green);"><span aria-hidden="true">&#128218;</span> Study Skills &amp; Learning</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/Note-Taking/" rel="noopener noreferrer" target="_blank" class="card skills" aria-label="Note-Taking and Study Strategies — opens in new tab">
-      <h3>Note-Taking &amp; Study Strategies</h3>
-      <p>Cornell Notes, active recall, spaced repetition, time management.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-    <a href="https://rpg007-github.github.io/Getting-better/" rel="noopener noreferrer" target="_blank" class="card skills" aria-label="Getting Better — opens in new tab">
-      <h3>Getting Better</h3>
-      <p>College transition, anxiety management, building confidence and accountability.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-  </div>
-
-  <h3 class="all-section-head" style="color:var(--accent-coral);"><span aria-hidden="true">&#129513;</span> Math &amp; Science Foundation</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/Math-Fluency/" rel="noopener noreferrer" target="_blank" class="card subjects" aria-label="Math Fluency — opens in new tab">
-      <h3>Math Fluency</h3>
-      <p>Arithmetic practice, mental math shortcuts, foundational algebra skills.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-    <a href="https://rpg007-github.github.io/Science-Vocabulary-Builder/" rel="noopener noreferrer" target="_blank" class="card subjects" aria-label="Science Vocabulary Builder — opens in new tab">
-      <h3>Science Vocabulary Builder</h3>
-      <p>Latin and Greek roots, scientific terminology, decoding unfamiliar words.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-    <a href="https://rpg007-github.github.io/College-Algebra/" rel="noopener noreferrer" target="_blank" class="card subjects" aria-label="College Algebra — opens in new tab">
-      <h3>College Algebra</h3>
-      <p>Functions, graphing, equations, worked examples, practice quiz, and flashcards.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-    <a href="https://rpg007-github.github.io/Biology-for-non-majors/" rel="noopener noreferrer" target="_blank" class="card subjects" aria-label="Biology for Non-Majors — opens in new tab">
-      <h3>Biology for Non-Majors</h3>
-      <p>Conceptual biology with real-world applications, no prior knowledge needed.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-    <a href="https://rpg007-github.github.io/Chemistry-for-non-majors/" rel="noopener noreferrer" target="_blank" class="card subjects" aria-label="Chemistry for Non-Majors — opens in new tab">
-      <h3>Chemistry for Non-Majors</h3>
-      <p>Essential chemistry concepts, emphasis on understanding over calculation.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-  </div>
-
-  <h3 class="all-section-head" style="color:var(--accent-gold);"><span aria-hidden="true">&#129517;</span> Direction &amp; Planning</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/Finding-your-way-in-College/" rel="noopener noreferrer" target="_blank" class="card direction" aria-label="Finding Your Way in College — opens in new tab">
-      <h3>Finding Your Way in College</h3>
-      <p>Major exploration, career direction, self-assessment tools, and decision frameworks.</p>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-  </div>
-
-</section>
 
 </main>
 
-<footer class="footer" role="contentinfo">
-  Free and open educational resources. No login required. No judgment.<br>
-  Not affiliated with or endorsed by any university, testing organization, or textbook publisher.
+<footer role="contentinfo">
+  <p>Foundations: Closing the Gap Series &mdash; Free resources for every college student.</p>
+  <p>Not affiliated with any university, testing organization, or publisher. Supplemental use only.</p>
 </footer>
 
-<script>
-function showSection(id, btn) {
-  document.querySelectorAll('.guide-section').forEach(s => s.classList.remove('active'));
-  document.getElementById('sec-' + id).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => {
-    b.classList.remove('active');
-    b.setAttribute('aria-selected', 'false');
-  });
-  btn.classList.add('active');
-  btn.setAttribute('aria-selected', 'true');
-  // Smooth scroll to nav bar so content is in view
-  document.getElementById('nav-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function toggleDisclaimer() {
-  const body   = document.getElementById('disc-body');
-  const arrow  = document.getElementById('disc-arrow');
-  const toggle = document.querySelector('.disclaimer-toggle');
-  body.classList.toggle('open');
-  arrow.classList.toggle('open');
-  const isOpen = body.classList.contains('open');
-  toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-}
-</script>
 </body>
 </html>
